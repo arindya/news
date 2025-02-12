@@ -66,6 +66,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="">{{ __('admin.Ytembed') }}</label>
+                        <input name="ytembed" value="{{ $news->ytembed }}" type="text" class="form-control"
+                            id="name">
+                        @error('ytembed')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="">{{ __('admin.Content') }}</label>
                         <textarea name="content" class="summernote-simple">{{ $news->content }}</textarea>
                         @error('content')

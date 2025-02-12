@@ -51,9 +51,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">{{ __('admin.Ttile') }}</label>
+                        <label for="">{{ __('admin.Title') }}</label>
                         <input name="title" type="text" class="form-control" id="name">
                         @error('title')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">{{ __('admin.Ytembed') }}</label>
+                        <input name="ytembed" type="text" class="form-control" id="name">
+                        @error('ytembed')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>

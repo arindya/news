@@ -152,6 +152,7 @@ return array (
   'Show At Popular' => 'Show At Popular',
   'Edit News' => 'Edit News',
   'Title' => 'Title',
+  'Ytembed' => 'Ytembed',
   'Edit' => 'Edit',
   'In Breaking' => 'In Breaking',
   'In Slider' => 'In Slider',

@@ -94,6 +94,7 @@ class NewsController extends Controller
         $news->show_at_popular = $request->show_at_popular == 1 ? 1 : 0;
         $news->status = $request->status == 1 ? 1 : 0;
         $news->is_approved = getRole() == 'Super Admin' || checkPermission('news all-access') ? 1 : 0;
+        $news->ytembed = $request->ytembed;
         $news->save();
 
         $tags =explode(',',$request->tags);
