@@ -64,6 +64,12 @@
                             </ul>
                         </div>
 
+                        <div>
+                            @if ($news->ytembed)
+                                <iframe width="720" height="415" src="{{ $news->ytembed }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            @endif    
+                        </div>
+
                         <div class="wrap__article-detail-image mt-4">
                             <figure>
                                 <img src="{{ asset($news->image) }}" alt="" class="img-fluid">
