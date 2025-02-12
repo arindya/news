@@ -40,7 +40,7 @@
             @endif
 
             @if (canAccess(['comment']))
-                <li class="{{ setSidebarActive(['admin.komen.*']) }}"><a class="nav-link"
+                <li class="{{ setSidebarActive(['admin.comment.*']) }}"><a class="nav-link"
                 href="{{ route('admin.comment.index') }}"><i class="fas fa-hashtag"></i>
                 <span>{{ __('admin.komen') }}</span></a></li>
             @endif
