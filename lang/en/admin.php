@@ -117,6 +117,7 @@ return array (
   'All News' => 'All News',
   'Pending News' => 'Pending News',
   'Social Count' => 'Social Count',
+  'komen' => 'Comment',
   'Contact Messages' => 'Contact Messages',
   'Pages' => 'Pages',
   'Advertisement' => 'Advertisement',

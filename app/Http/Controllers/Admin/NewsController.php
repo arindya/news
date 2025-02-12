@@ -230,4 +230,12 @@ class NewsController extends Controller
         toast(__('admin.Copied Successfully!'),'success');
         return redirect()->back();
     }
+
+    //komensultan
+    public function comment()
+    {
+        $languages = Language::all();
+        $news = News::all();
+        return view ('admin.news.comment',compact('languages','news'));
+    }
 }

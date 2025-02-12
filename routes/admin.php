@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SocialCountController;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\SubscriberController;
+use App\Http\Controllers\Admin\CommentController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'admin' ,'as'=>'admin.'],function(){
@@ -53,6 +54,9 @@ Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>['admin']],function
     Route::put('approve_news', [NewsController::class, 'approveNews'])->name('approve-news');
     Route::get('toggle-news-status', [NewsController::class, 'toggleNewsStatus'])->name('toggle-news-status');
     Route::resource('news',NewsController::class);
+
+    // comment 
+    Route::resource('comment',CommentController::class);
 
     // Profile routes
     Route::resource('profile',ProfileController::class);
