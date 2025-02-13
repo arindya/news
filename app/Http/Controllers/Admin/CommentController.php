@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Language;
 use App\Models\News;
 use App\Models\Tag;
@@ -24,6 +25,23 @@ class CommentController extends Controller
         $news = News::all();
         return view ('admin.comment.index',compact('languages','news'));
     }
+
+    // public function details(string $id)
+    // {
+    //     $languages = Language::all();
+    //     $comments = Comment::all();
+    //     $news = News::findOrFail($id);
+
+    //     if(!canAccess(['news all-access'])){
+    //         if($news->author_id != auth()->guard('admin')->user()->id){
+    //             return abort(404);
+    //         }
+    //     }
+
+    //     $categories = Category::where('language',$news->language)->get();
+    //     return view ('admin.comment.details',compact('languages','comment'));
+
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -54,7 +72,20 @@ class CommentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $languages = Language::all();
+        $comments = Comment::where('news_id',$id)->get();
+        // $users = users::all();where('user_id',$comments)->get();
+        $news = News::findOrFail($id);
+
+        if(!canAccess(['news all-access'])){
+            if($news->author_id != auth()->guard('admin')->user()->id){
+                return abort(404);
+            }
+        }
+
+        // $categories = Category::where('language',$news->language)->get();
+        return view ('admin.comment.details',compact('languages','comments'));
+
     }
 
     /**

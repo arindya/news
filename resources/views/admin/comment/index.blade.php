@@ -9,11 +9,11 @@
         <div class="card card-primary">
             <div class="card-header">
                 <h4>{{ __('admin.All News') }}</h4>
-                <div class="card-header-action">
+                {{-- <div class="card-header-action">
                     <a href="{{ route('admin.news.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('admin.Create new plr') }}
                     </a>
-                </div>
+                </div> --}}
             </div>
 
             <div class="card-body">
@@ -83,13 +83,8 @@
                                                     <td>{{ $item->category->name }}</td>
                                                     
                                                     <td>
-                                                        <a href="{{ route('admin.news.edit', $item->id) }}"
+                                                        <a href="{{ route('admin.comment.edit', $item->id) }}"
                                                             class="btn btn-primary"><i class="fa-solid fa-bars"></i></a>
-                                                        {{-- <a href="{{ route('admin.news.destroy', $item->id) }}"
-                                                            class="btn btn-danger delete-item"><i
-                                                                class="fas fa-trash-alt"></i></a>
-                                                        <a href="{{ route('admin.news-copy', $item->id) }}"
-                                                            class="btn btn-primary"><i class="fas fa-copy"></i></i></a> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

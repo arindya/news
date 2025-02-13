@@ -233,10 +233,26 @@ class NewsController extends Controller
     }
 
     //komensultan
-    public function comment()
-    {
-        $languages = Language::all();
-        $news = News::all();
-        return view ('admin.news.comment',compact('languages','news'));
-    }
+    // public function comment()
+    // {
+    //     $languages = Language::all();
+    //     $news = News::all();
+    //     return view ('admin.news.comment',compact('languages','news'));
+    // }
+
+    // public function details(string $id)
+    // {
+    //     $languages = Language::all();
+    //     $news = News::findOrFail($id);
+
+    //     if(!canAccess(['news all-access'])){
+    //         if($news->author_id != auth()->guard('admin')->user()->id){
+    //             return abort(404);
+    //         }
+    //     }
+
+    //     $categories = Category::where('language',$news->language)->get();
+    //     return view ('admin.comment.details',compact('languages','news','categories'));
+
+    // }
 }
