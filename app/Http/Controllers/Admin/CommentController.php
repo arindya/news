@@ -73,8 +73,11 @@ class CommentController extends Controller
     public function edit(string $id)
     {
         $languages = Language::all();
-        $comments = Comment::where('news_id',$id)->get();
-        // $users = users::all();where('user_id',$comments)->get();
+        $comments = Comment::join('users as b', 'comments.user_id', '=', 'b.id')
+            ->where('comments.news_id', $id)
+            ->select('*')
+            ->get();
+        
         $news = News::findOrFail($id);
 
         if(!canAccess(['news all-access'])){
@@ -101,6 +104,16 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $comments = Comment::findOrFail($id);
+            // $news = News::where('category_id', $category->id)->get();
+            // foreach($news as $item){
+            //     $item->tags()->delete();
+            // }
+            $comments->delete();
+            return response(['status' => 'success', 'message' => __('admin.Deleted Successfully!')]);
+       } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => __('admin.Someting went wrong!')]);
+       }
     }
 }
