@@ -59,7 +59,7 @@ class RoleUserController extends Controller
 
             //send mail to the user
 
-            Mail::to($request->email)->send(new RoleUserCreateMail($request->mail,$request->password));
+            // Mail::to($request->email)->send(new RoleUserCreateMail($request->mail,$request->password));
 
             toast(__('admin.Created Successfully!'), 'success');
 

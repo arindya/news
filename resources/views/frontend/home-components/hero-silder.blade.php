@@ -54,7 +54,7 @@
                     <div class="popular__news-right">
                         <!-- Post Article -->
                         @foreach ($heroSlider as $slider)
-                            @if ($loop->index > 4 && $loop->index <= 6)
+                            @if ($loop->index > 1 && $loop->index <= 6)
                                 <div class="card__post ">
                                     <div class="card__post__body card__post__transition">
                                         <a href="{{ route('news-details', $slider->slug) }}">

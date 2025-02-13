@@ -71,16 +71,18 @@
                         </div>
 
                         <div class="wrap__article-detail-image mt-4">
+                            @if ($news->ytembed == null)
                             <figure>
                                 <img src="{{ asset($news->image) }}" alt="" class="img-fluid">
                             </figure>
+                            @endif
                         </div>
                         <div class="wrap__article-detail-content">
                             <div class="total-views">
                                 <div class="total-views-read">
-                                    {{ convertToKFormat($news->views) }}
+                                    {{-- {{ convertToKFormat($news->views) }} --}}
                                     <span>
-                                        {{ __('frontend.views') }}
+                                        {{-- {{ __('frontend.views') }} --}}
                                     </span>
                                 </div>
 
