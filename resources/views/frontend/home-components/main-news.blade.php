@@ -2,14 +2,14 @@
     <div class="popular__section-news">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-lg-8">
+                <div class="col-sm-6 col-md-4">
                     <div class="wrapper__list__article">
                         <h4 class="border_section">{{ __('frontend.recent post') }}</h4>
                     </div>
-                    <div class="row ">
+                    <div class="row">
                         @foreach ($recentNews as $news)
-                            @if ($loop->index <= 1)
-                                <div class="col-sm-12 col-md-6 mb-4">
+                            @if ($loop->index < 1)
+                                <div class="col-sm-12 col-md-12 mb-4">
                                     <!-- Post Article -->
                                     <div class="card__post ">
                                         <div class="card__post__body card__post__transition">
@@ -49,7 +49,7 @@
                         @endforeach
                     </div>
                     <div class="row ">
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-12 mb-4">
                             <div class="wrapp__list__article-responsive">
                                 @foreach ($recentNews as $news)
                                     @if ($loop->index > 1 && $loop->index <= 3)
@@ -98,16 +98,24 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <aside class="wrapper__list__article">
+                        <h4 class="border_section">{{ __('Most Read post') }}</h4>
+                    <div class="wrapper__list-number"></div>
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-12 mb-4">
                             <div class="wrapp__list__article-responsive">
-                                @foreach ($recentNews as $news)
-                                    @if ($loop->index > 3 && $loop->index <= 5)
+                                @foreach ($mostReadNews as $readNews)
+                                    @if ($loop->index <= 4)
                                         <div class="mb-3">
                                             <!-- Post Article -->
                                             <div class="card__post card__post-list">
                                                 <div class="image-sm">
-                                                    <a href="{{ route('news-details', $news->slug) }}">
-                                                        <img src="{{ asset($news->image) }}" class="img-fluid"
+                                                    <a href="{{ route('news-details', $readNews->slug) }}">
+                                                        <img src="{{ asset($readNews->image) }}" class="img-fluid"
                                                             alt="">
                                                     </a>
                                                 </div>
@@ -121,12 +129,12 @@
                                                                 <li class="list-inline-item">
                                                                     <span class="text-primary">
                                                                         {{ __('frontend.by') }}
-                                                                        {{ $news->author->name }}
+                                                                        {{ $readNews->author->name }}
                                                                     </span>
                                                                 </li>
                                                                 <li class="list-inline-item">
                                                                     <span class="text-dark text-capitalize">
-                                                                        {{ date('M d, Y', strtotime($news->created_at)) }}
+                                                                        {{ date('M d, Y', strtotime($readNews->created_at)) }}
                                                                     </span>
                                                                 </li>
 
@@ -134,8 +142,8 @@
                                                         </div>
                                                         <div class="card__post__title">
                                                             <h6>
-                                                                <a href="{{ route('news-details', $news->slug) }}">
-                                                                    {!! truncate($news->title) !!}
+                                                                <a href="{{ route('news-details', $readNews->slug) }}">
+                                                                    {!! truncate($readNews->title) !!}
                                                                 </a>
                                                             </h6>
                                                         </div>
@@ -148,10 +156,10 @@
                             </div>
                         </div>
                     </div>
+                    </aside>
                 </div>
 
-
-                <div class="col-md-12 col-lg-4">
+                <div class="col-sm-6 col-md-4">
                     <aside class="wrapper__list__article">
                         <h4 class="border_section">{{ __('frontend.popular post') }}</h4>
                         <div class="wrapper__list-number">
@@ -630,36 +638,6 @@
                         </aside>
                     </div>
                 </div>
-                {{-- <div class="mx-auto">
-                    <!-- Pagination -->
-                    <div class="pagination-area">
-                        <div class="pagination wow fadeIn animated" data-wow-duration="2s" data-wow-delay="0.5s"
-                            style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
-                            <a href="#">
-                                «
-                            </a>
-                            <a class="active" href="#">
-                                1
-                            </a>
-                            <a  href="#">
-                                2
-                            </a>
-                            <a href="#">
-                                3
-                            </a>
-                            <a href="#">
-                                4
-                            </a>
-                            <a href="#">
-                                5
-                            </a>
-
-                            <a href="#">
-                                »
-                            </a>
-                        </div>
-                    </div>
-                </div> --}}
 
                 <div class="clearfix"></div>
             </div>

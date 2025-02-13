@@ -85,6 +85,9 @@ class HomeController extends Controller
 
         $mostCommonTags = $this->mostCommonTags();
 
+        $mostReadNews = News::activeEntries()->withLocalize()
+        ->orderBy('views', 'DESC')->get();
+
         $ad = Ad::first();
 
         return view('frontend.home',compact(
@@ -99,7 +102,8 @@ class HomeController extends Controller
         'mostViewedPosts',
         'socialCounts',
         'mostCommonTags',
-        'ad'));
+        'ad',
+        'mostReadNews'));
     }
 
     public function showNews(string $slug){
@@ -132,6 +136,10 @@ class HomeController extends Controller
         $mostCommonTags = $this->mostCommonTags();
 
         $ad = Ad::first();
+
+        $mostReadNews = News::activeEntries()->withLocalize()
+        ->orderBy('views', 'DESC')->get();
+
         return view('frontend.news-details',compact(
             'news',
             'recentNews',
@@ -140,7 +148,8 @@ class HomeController extends Controller
             'previousPost',
             'relatedPosts',
             'socialCounts',
-            'ad'));
+            'ad',
+            'mostReadNews'));
     }
 
     public function news(Request $request)
@@ -178,9 +187,12 @@ class HomeController extends Controller
 
         $categories = Category::where(['status' => 1, 'language' => getLanguage()])->get();
 
+        $mostReadNews = News::activeEntries()->withLocalize()
+        ->orderBy('views', 'DESC')->get();
+
         $ad = Ad::first();
 
-        return view('frontend.news', compact('news', 'recentNews', 'mostCommonTags', 'categories','ad'));
+        return view('frontend.news', compact('news', 'recentNews', 'mostCommonTags', 'categories','ad', 'mostReadNews'));
     }
 
     public function countView($news)
