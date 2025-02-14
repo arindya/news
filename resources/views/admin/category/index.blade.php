@@ -41,7 +41,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">
-                                                    #
+                                                    No
                                                 </th>
                                                 <th>{{ __('admin.Name') }}</th>
                                                 <th>{{ __('admin.Language Code') }}</th>
@@ -53,7 +53,7 @@
                                         <tbody>
                                             @foreach ($categories as $category)
                                                 <tr>
-                                                    <td>{{ $category->id }}</td>
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $category->name }}</td>
                                                     <td>{{ $category->language }}</td>
                                                     <td>
