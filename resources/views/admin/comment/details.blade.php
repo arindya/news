@@ -57,7 +57,7 @@
                                                     <td>{{ $category->name }}</td>
                                                     <td>{{ $category->comment }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.category.destroy', $category->id) }}"
+                                                        <a href="{{ route('admin.comment.destroy', $category->id) }}"
                                                             class="btn btn-danger delete-item"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>

@@ -26,23 +26,6 @@ class CommentController extends Controller
         return view ('admin.comment.index',compact('languages','news'));
     }
 
-    // public function details(string $id)
-    // {
-    //     $languages = Language::all();
-    //     $comments = Comment::all();
-    //     $news = News::findOrFail($id);
-
-    //     if(!canAccess(['news all-access'])){
-    //         if($news->author_id != auth()->guard('admin')->user()->id){
-    //             return abort(404);
-    //         }
-    //     }
-
-    //     $categories = Category::where('language',$news->language)->get();
-    //     return view ('admin.comment.details',compact('languages','comment'));
-
-    // }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -75,7 +58,7 @@ class CommentController extends Controller
         $languages = Language::all();
         $comments = Comment::join('users as b', 'comments.user_id', '=', 'b.id')
             ->where('comments.news_id', $id)
-            ->select('*')
+            ->select('comments.comment', 'comments.id','b.name')
             ->get();
         
         $news = News::findOrFail($id);
