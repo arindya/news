@@ -13118,6 +13118,7 @@ input[type="number"] {
 
 .article__entry {
     display: inline-block;
+    height: 380px;
     /* border: 1px solid #ddd; */
     /* padding: 10px; */
     border-radius: 8px;

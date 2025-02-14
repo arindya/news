@@ -232,7 +232,7 @@
                                     </ul>
                                     <h5>
                                         <a href="{{ route('news-details', $sectionOneNews->slug) }}">
-                                            {!! truncate($sectionOneNews->title, 40) !!}
+                                            {!! truncate($sectionOneNews->title, 24) !!}
                                         </a>
                                     </h5>
 
@@ -286,7 +286,7 @@
                                     </ul>
                                     <h5>
                                         <a href="{{ route('news-details', $sectionTwoNews->slug) }}">
-                                            {!! truncate($sectionTwoNews->title, 40) !!}
+                                            {!! truncate($sectionTwoNews->title, 24) !!}
                                         </a>
                                     </h5>
 
