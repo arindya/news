@@ -3,17 +3,17 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('admin.Categories') }}</h1>
+            <h1>{{ __('Comment') }}</h1>
         </div>
 
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('admin.All Categories') }}</h4>
-                <div class="card-header-action">
+                <h4>{{ __('All Comment') }}</h4>
+                {{-- <div class="card-header-action">
                     <a href="{{ route('admin.category.create') }}" class='btn btn-primary'>
                         <i class="fas fa-plus"></i>{{ __('admin.Create new category') }}
                     </a>
-                </div>
+                </div> --}}
             </div>
             <div class="card-body">
                 <ul class="nav nav-tabs" id="myTab2" role="tablist">
@@ -44,7 +44,7 @@
                                                     #
                                                 </th>
                                                 <th>{{ __('admin.Name') }}</th>
-                                                <th>{{ __('admin.Language Code') }}</th>
+                                                <th>{{ __('Comment') }}</th>
                                                 {{-- <th>{{ __('admin.In Nav') }}</th>
                                                 <th>{{ __('admin.Status') }}</th> --}}
                                                 <th>{{ __('admin.Action') }}</th>
