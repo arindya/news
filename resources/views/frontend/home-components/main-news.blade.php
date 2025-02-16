@@ -411,54 +411,88 @@
                         <h4 class="border_section">{{ @$categorySectionFour->first()->category->name }}</h4>
 
                         <div class="wrapp__list__article-responsive">
-                            @foreach ($categorySectionFour as $sectionFourNews)
                                <!-- Post Article List -->
                                <div class="card__post card__post-list card__post__transition mt-30 ">
                                     <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="card__post__transition">
-                                                <a href="{{ route('news-details', optional($sectionFourNews)->slug) }}">
-                                                    <img src="{{ asset($sectionFourNews->image) }}" class="img-fluid w-100" alt="News Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="card__post__body">
-                                                <div class="card__post__content">
-                                                    <div class="card__post__category">
-                                                    {{ __('frontend.by') }}
-                                                    {{ $sectionFourNews->author->name }}
-                                                    </div>
-                                                    <div class="card__post__author-info mb-2">
-                                                        <ul class="list-inline">
-                                                            <li class="list-inline-item">
-                                                                <span class="text-primary">
-                                                                    {{ __('frontend.by') }} {{ optional($sectionFourNews->author)->name }}
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span class="text-dark text-capitalize">
-                                                                {{ date('M d, Y', strtotime($sectionFourNews->created_at)) }}
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="card__post__title">
-                                                        <h5>
-                                                            <a  href="{{ route('news-details', $sectionThreeNews->slug) }}">
-                                                                {!! truncate($sectionFourNews->title, limit: 50) !!}
-                                                            </a>
-                                                        </h5>
-                                                        <p class="d-none d-lg-block d-xl-block mb-0">
-                                                                {!! truncate($sectionFourNews->title, limit: 50) !!}
-                                                        </p>
-                                                    </div>
+                                    <div class="col-md-6">
+                                        @foreach ($categorySectionFour as $sectionFourNews)
+                                            @if ($loop->index < 2)
+                                                    <div class="card__post__transition">
+                                                        <a href="{{ route('news-details', optional($sectionFourNews)->slug) }}">
+                                                            <img src="{{ asset($sectionFourNews->image) }}" class="img-fluid w-100" alt="News Image">
+                                                        </a>
                                                 </div>
-                                            </div>
+                                                    <div class="card__post__body">
+                                                        <div class="card__post__content">
+                                                            <div class="card__post__category">
+                                                            {{ __('frontend.by') }}
+                                                            {{ $sectionFourNews->author->name }}
+                                                            </div>
+                                                            <div class="card__post__author-info mb-2">
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <span class="text-dark text-capitalize">
+                                                                        {{ date('M d, Y', strtotime($sectionFourNews->created_at)) }}
+                                                                        </span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card__post__title">
+                                                                <h5>
+                                                                    <a  href="{{ route('news-details', $sectionThreeNews->slug) }}">
+                                                                        {!! truncate($sectionFourNews->title, limit: 50) !!}
+                                                                    </a>
+                                                                </h5>
+                                                                <p class="d-none d-lg-block d-xl-block mb-0">
+                                                                        {!! truncate($sectionFourNews->title, limit: 30) !!}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                                @endforeach
                                         </div>
+                                    <div class="col-md-6">
+                                    @foreach ($categorySectionFour as $sectionFourNews)
+                                    @if ($loop->index >= 2 && $loop->index < 6)
+                                    <div class="card__post__transition">
+                                        <a href="{{ route('news-details', optional($sectionFourNews)->slug) }}">
+                                            <img src="{{ asset($sectionFourNews->image) }}" class="img-fluid w-100" alt="News Image">
+                                        </a>
+                                    </div>
+                                         <div class="card__post__body">
+                                            <div class="card__post__content">
+                                                <div class="card__post__category">
+                                                        {{ __('frontend.by') }}
+                                                        {{ $sectionFourNews->author->name }}
+                                                        </div>
+                                                <div class="card__post__author-info mb-2">
+                                                            <ul class="list-inline">
+                                                                <li class="list-inline-item">
+                                                                    <span class="text-dark text-capitalize">
+                                                                    {{ date('M d, Y', strtotime($sectionFourNews->created_at)) }}
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="card__post__title">
+                                                        <h5>
+                                                                <a  href="{{ route('news-details', $sectionThreeNews->slug) }}">
+                                                                    {!! truncate($sectionFourNews->title, limit: 50) !!}
+                                                                </a>
+                                                            </h5>
+                                                            <p class="d-none d-lg-block d-xl-block mb-0">
+                                                                    {!! truncate($sectionFourNews->title, limit: 30) !!}
+                                                            </p>
+                                                        </div>
+                                            </div>
+                                        </div> 
+                                    @endif
+                                    @endforeach
+                                    </div>
+
                                     </div>
                                 </div>
-                            @endforeach
 
                         </div>
                     </aside>
@@ -466,14 +500,13 @@
 
                 <div class="col-md-4">
                     <div class="sticky-top">
-                        <aside class="wrapper__list__article">
+                        <!-- <aside class="wrapper__list__article">
                             <h4 class="border_section">
                                 {{ __('frontend.Most Viewed') }}t</h4>
                             <div class="wrapper__list__article-small">
 
                                 @foreach ($mostViewedPosts as $mostViewPosts)
                                     @if ($loop->index === 0)
-                                        <!-- Post Article -->
                                         <div class="article__entry">
                                             <div class="article__image">
                                                 <a href="{{ route('news-details', $mostViewPosts->slug) }}">
@@ -515,7 +548,6 @@
                                 @foreach ($mostViewedPosts as $mostViewPosts)
                                     @if ($loop->index > 0)
                                         <div class="mb-3">
-                                            <!-- Post Article -->
                                             <div class="card__post card__post-list">
                                                 <div class="image-sm">
                                                     <a href="{{ route('news-details', $mostViewPosts->slug) }}">
@@ -557,7 +589,7 @@
                                     @endif
                                 @endforeach
                             </div>
-                        </aside>
+                        </aside> -->
 
                         <aside class="wrapper__list__article">
                             <h4 class="border_section">{{ __('frontend.stay conected') }}</h4>
