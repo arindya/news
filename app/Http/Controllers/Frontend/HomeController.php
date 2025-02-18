@@ -28,7 +28,7 @@ class HomeController extends Controller
         $breakingNews = News::where([
             'is_breaking_news'=>1
         ])->activeEntries()->withLocalize()->orderBy('id','DESC')->take(10)->get();
-
+        $breakingcheck = $breakingNews->isNotEmpty();
         $heroSlider = News::with(['category', 'author'])
             ->where('show_at_slider', 1)
             ->activeEntries()
@@ -67,7 +67,7 @@ class HomeController extends Controller
             $categorySectionFour = News::where('category_id', $HomeSectionSetting->category_section_four)
                 ->activeEntries()->withLocalize()
                 ->orderBy('id', 'DESC')
-                ->take(4)
+                ->take(10)
                 ->get();
             }else {
                 $categorySectionOne = collect();
@@ -92,6 +92,7 @@ class HomeController extends Controller
 
         return view('frontend.home',compact(
         'breakingNews',
+        'breakingcheck',
         'heroSlider',
         'recentNews',
         'popularNews',

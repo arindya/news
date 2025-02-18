@@ -17959,7 +17959,7 @@ body.offcanvas-active {
 .small_add_banner_img {
     border-radius: 8px;
     overflow: hidden;
-    max-height: 250px;
+    max-height: 100%;
 }
 
 

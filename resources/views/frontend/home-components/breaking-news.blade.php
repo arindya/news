@@ -1,3 +1,4 @@
+@if ($breakingcheck == true)
 <section class="bg-light">
     <div class="container">
         <div class="row">
@@ -15,7 +16,6 @@
 
                                 <div class="card__post__body ">
                                     <div class="card__post__content">
-
                                         <div class="card__post__author-info mb-2">
                                             <ul class="list-inline">
                                                 <li class="list-inline-item">
@@ -28,7 +28,6 @@
                                                         {{ date('M d, Y', strtotime($news->created_at)) }}
                                                     </span>
                                                 </li>
-
                                             </ul>
                                         </div>
                                         <div class="card__post__title">
@@ -48,3 +47,4 @@
         </div>
     </div>
 </section>
+@endif

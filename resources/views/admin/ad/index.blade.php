@@ -63,9 +63,9 @@
                         </label>
                     </div>
 
-                    <h5 class="text-primary">{{ __('admin.News View Page Ads') }}</h5>
+                    {{-- <h5 class="text-primary">{{ __('admin.News View Page Ads') }}</h5> --}}
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <img src="{{ asset($ad->view_page_ad) }}" width="200px" alt="">
                         <br>
                         <label for="">{{ __('admin.Bottom Ad') }}</label>
@@ -86,9 +86,9 @@
                                 value="1" type="checkbox" class="custom-switch-input toggle-status">
                             <span class="custom-switch-indicator"></span>
                         </label>
-                    </div>
+                    </div> --}}
 
-                    <h5 class="text-primary">{{ __('admin.News Page Ads') }}</h5>
+                    <h5 class="text-primary">{{ __('News Page Footer') }}</h5>
 
                     <div class="form-group">
                         <img src="{{ asset($ad->news_page_ad) }}" width="200px" alt="">

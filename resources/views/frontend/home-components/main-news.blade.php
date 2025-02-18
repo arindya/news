@@ -632,7 +632,21 @@
                         </aside>
                     </div>
                 </div>
-
+                @if ($ad->news_page_ad_status == 1)
+            <div class="large_add_banner my-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="large_add_banner_img">
+                                <a href="{{ $ad->news_page_ad_url }}">
+                                    <img src="{{ asset($ad->news_page_ad) }}" alt="adds">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
                 <div class="clearfix"></div>
             </div>
         </div>
