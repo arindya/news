@@ -13118,7 +13118,7 @@ input[type="number"] {
 
 .article__entry {
     display: inline-block;
-    height: 380px;
+    height: auto;
     /* border: 1px solid #ddd; */
     /* padding: 10px; */
     border-radius: 8px;
@@ -18051,4 +18051,20 @@ body.offcanvas-active {
 
 
 
-/*  */
+/*  ADDED FOR UI YOUTUBE MOBILE */
+
+.embed-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.embed-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

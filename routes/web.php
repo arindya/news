@@ -57,3 +57,5 @@ Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 
 // Contact Page Route
 Route::post('contact', [HomeController::class, 'handleContactFrom'])->name('contact.submit');
+
+Route::get('/load-more', [HomeController::class, 'loadMore']);

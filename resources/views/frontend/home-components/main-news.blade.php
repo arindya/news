@@ -232,7 +232,7 @@
                                     </ul>
                                     <h5>
                                         <a href="{{ route('news-details', $sectionOneNews->slug) }}">
-                                            {!! truncate($sectionOneNews->title, 24) !!}
+                                            {!! truncate($sectionOneNews->title, 50) !!}
                                         </a>
                                     </h5>
 
@@ -286,7 +286,7 @@
                                     </ul>
                                     <h5>
                                         <a href="{{ route('news-details', $sectionTwoNews->slug) }}">
-                                            {!! truncate($sectionTwoNews->title, 24) !!}
+                                            {!! truncate($sectionTwoNews->title, 50) !!}
                                         </a>
                                     </h5>
 
@@ -410,9 +410,8 @@
                     <aside class="wrapper__list__article mt-5">
                         <h4 class="border_section">{{ @$categorySectionFour->first()->category->name }}</h4>
 
-                        <div class="wrapp__list__article-responsive">
+                        <!-- <div class="wrapp__list__article-responsive">
                             @foreach ($categorySectionFour as $sectionFourNews)
-                               <!-- Post Article List -->
                                <div class="card__post card__post-list card__post__transition mt-30 ">
                                     <div class="row">
                                         <div class="col-md-5">
@@ -459,8 +458,20 @@
                                     </div>
                                 </div>
                             @endforeach
-
+                        </div> -->
+                        <div class="category-4-container">
+                            <div id="category4News">
+                                <!-- Konten awal akan di-load di sini -->
+                            </div>
+                            <div class="text-center py-4" id="loadingCat4" style="display: none;">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
                         </div>
+                        <div class="d-flex justify-content-center">
+                                <button id="load-more" class="btn btn-primary col-md-4 mt-5">View More</button>
+                            </div>
                     </aside>
                 </div>
 

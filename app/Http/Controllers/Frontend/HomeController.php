@@ -329,4 +329,28 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
+
+    public function loadMore(Request $request)
+    {
+        $page = $request->input('page', 1);
+        $perPage = 4; // Load 6 post per halaman
+
+        $HomeSectionSetting = HomeSectionSetting::where('language', getLanguage())->first();
+        if ($HomeSectionSetting) {
+            $categorySectionFour = News::where('category_id', $HomeSectionSetting->category_section_four)
+                    ->activeEntries()->withLocalize()
+                    ->orderBy('id', 'DESC')
+                    ->orderBy('created_at', 'desc')
+                    ->paginate($perPage, ['*'], 'page', $page);
+        }
+
+        // Jika tidak ada data lagi, kembalikan response kosong
+        if ($categorySectionFour->isEmpty()) {
+            return response()->json('', 204);
+        }
+
+        return view('frontend.news-item', [
+            'categorySectionFour' => $categorySectionFour
+        ])->render();
+    }
 }

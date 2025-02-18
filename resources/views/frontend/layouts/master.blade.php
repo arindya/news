@@ -140,6 +140,51 @@
                 })
             })
         })
+
+    document.addEventListener('DOMContentLoaded', function() {
+    let pageCat4 = 1;
+    const loadingCat4 = document.getElementById('loadingCat4');
+    const containerCat4 = document.getElementById('category4News');
+    const loadMoreBtn = document.getElementById('load-more');
+
+    function loadMoreCat4() {
+        loadingCat4.style.display = 'block';
+        loadMoreBtn.style.display = 'none';
+
+        pageCat4++;
+
+        fetch(`/load-more?page=${pageCat4}`)
+            .then(response => response.text())
+            .then(html => {
+                if (html.trim() === '') {
+                    loadMoreBtn.style.display = 'none'; // Sembunyikan tombol jika tidak ada data lagi
+                } else {
+                    containerCat4.insertAdjacentHTML('beforeend', html);
+                    loadMoreBtn.style.display = 'block';
+                }
+                loadingCat4.style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                loadMoreBtn.style.display = 'block'; // Tampilkan kembali tombol jika gagal
+                loadingCat4.style.display = 'none';
+            });
+    }
+
+    // Event listener untuk tombol "View More"
+    loadMoreBtn.addEventListener('click', loadMoreCat4);
+
+    // Load halaman pertama saat halaman pertama kali dibuka
+    fetch('/load-more?page=1')
+        .then(response => response.text())
+        .then(html => {
+            if (html.trim() !== '') {
+                containerCat4.innerHTML = html;
+            } else {
+                loadMoreBtn.style.display = 'none'; // Sembunyikan tombol jika data awal kosong
+            }
+        });
+});
     </script>
 
 
