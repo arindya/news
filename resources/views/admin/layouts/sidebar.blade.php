@@ -25,7 +25,7 @@
             @endif
 
             @if (canAccess(['news index']))
-                <li class="dropdown {{ setSidebarActive(['admin.news.*', 'admin.pending.news']) }}">
+                <li class="dropdown {{ setSidebarActive(['admin.news.*', 'admin.pending.news.*']) }}">
                     <a href="#" class="nav-link has-dropdown"><i class="fas fa-newspaper"></i>
                         <span>{{ __('admin.News') }}</span></a>
                     <ul class="dropdown-menu">

@@ -384,7 +384,7 @@
 
                     <div class="small_add_banner mb-5 pb-4">
                         <div class="small_add_banner_img">
-                            <img src="images/placeholder_large.jpg" alt="adds">
+                            {{-- <img src="images/placeholder_large.jpg" alt="adds"> --}}
                         </div>
                     </div>
 
